@@ -1,4 +1,4 @@
-import 'package:expense_tracker/Models/expense.dart';
+import 'package:expense_tracker/models/expense.dart';
 import 'package:flutter/material.dart';
 
 class NewExpense extends StatefulWidget {
@@ -89,18 +89,16 @@ class _NewExpenseState extends State<NewExpense> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 48, 16, 16),
+        padding: const EdgeInsets.fromLTRB(16, 38, 16, 16),
         child: Column(
           children: [
             SizedBox(
-              height: 50,
+              height: 10,
             ),
             TextField(
               controller: _titleController,
               maxLength: 50,
               decoration: InputDecoration(
-                filled: true,
-                fillColor: Colors.white,
                 contentPadding: EdgeInsets.all(20),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20),
@@ -109,7 +107,10 @@ class _NewExpenseState extends State<NewExpense> {
                     color: Colors.black,
                   ),
                 ),
-                label: Text("Title"),
+                label: Text(
+                  "Title",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
             Row(
@@ -119,8 +120,6 @@ class _NewExpenseState extends State<NewExpense> {
                     keyboardType: TextInputType.number,
                     controller: _amountController,
                     decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                         borderSide: BorderSide(
@@ -129,7 +128,10 @@ class _NewExpenseState extends State<NewExpense> {
                         ),
                       ),
                       prefixText: "\$ ", //to always have a dollar sign.
-                      label: Text("Amoount"),
+                      label: Text(
+                        "Amount",
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ),

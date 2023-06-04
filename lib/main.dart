@@ -1,16 +1,13 @@
 import 'package:expense_tracker/expenses.dart';
 import 'package:flutter/material.dart';
 
-var kScaffoldScheme = ColorScheme.fromSeed(
-  seedColor: Color.fromARGB(255, 204, 191, 234),
-);
 var kColorScheme = ColorScheme.fromSeed(
-  seedColor: const Color.fromARGB(255, 96, 59, 181),
+  seedColor: Color.fromARGB(255, 53, 25, 118),
 );
-var kCardScheme = ColorScheme.fromSeed(
-  seedColor: Color.fromARGB(255, 28, 28, 56),
+var kDarkScheme = ColorScheme.fromSeed(
+  brightness: Brightness.dark,
+  seedColor: const Color.fromARGB(255, 5, 9, 125),
 );
-
 void main() {
   runApp(const MyApp());
 }
@@ -22,6 +19,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      //Dark Theme
+      darkTheme: ThemeData.dark().copyWith(
+        useMaterial3: true,
+        colorScheme: kDarkScheme,
+        //Setting card in dark Theme
+        cardTheme: const CardTheme().copyWith(
+          color: kDarkScheme.secondaryContainer,
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          elevation: 20,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              textStyle: TextStyle(color: Colors.red),
+              backgroundColor: kDarkScheme.primaryContainer,
+              foregroundColor: kDarkScheme.onPrimaryContainer),
+        ),
+      ),
+      //Light Mode
       theme: ThemeData().copyWith(
         useMaterial3: true,
         colorScheme: kColorScheme,
@@ -30,19 +45,22 @@ class MyApp extends StatelessWidget {
           foregroundColor: kColorScheme.primaryContainer,
         ),
         cardTheme: const CardTheme().copyWith(
-          color: kCardScheme.onPrimaryContainer,
+          color: kColorScheme.secondaryContainer,
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           elevation: 20,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              backgroundColor: kColorScheme.primaryContainer),
+            textStyle: TextStyle(color: Colors.red),
+            backgroundColor: kColorScheme.primaryContainer,
+          ),
         ),
+        //Text Theme
         textTheme: ThemeData().textTheme.copyWith(
-              titleLarge: TextStyle(
-                color: kColorScheme.onSecondaryContainer,
+              titleLarge: const TextStyle(
+                color: Colors.black,
                 fontWeight: FontWeight.bold,
-                fontSize: 20,
+                fontSize: 16,
               ),
             ),
       ),

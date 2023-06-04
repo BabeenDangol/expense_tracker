@@ -1,4 +1,4 @@
-import 'package:expense_tracker/Models/expense.dart';
+import 'package:expense_tracker/models/expense.dart';
 import 'package:flutter/material.dart';
 
 class ExpenseItem extends StatelessWidget {
@@ -19,11 +19,7 @@ class ExpenseItem extends StatelessWidget {
           children: [
             Text(
               expense.title,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+              style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(
               height: 4,
@@ -32,10 +28,6 @@ class ExpenseItem extends StatelessWidget {
               children: [
                 Text(
                   '\$${expense.amount.toStringAsFixed(2)}',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green[200],
-                  ),
                 ), //Converts the value like 12.3433 =>12.34.
                 const Spacer(), //Helps the Widget get the space it needs to display the data.
                 Row(

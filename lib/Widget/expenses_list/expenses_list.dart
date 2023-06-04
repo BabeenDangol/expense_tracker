@@ -1,4 +1,4 @@
-import 'package:expense_tracker/Models/expense.dart';
+import 'package:expense_tracker/models/expense.dart';
 import 'package:expense_tracker/Widget/expenses_list/expense_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,10 +17,9 @@ class ExpenseList extends StatelessWidget {
     return ListView.builder(
       itemCount: expenses.length, //defines how many list items renders
       itemBuilder: (context, index) => Dismissible(
-        background: Card(
-          color: Colors.red,
+        background: Container(
+          color: Theme.of(context).colorScheme.error,
           margin: EdgeInsets.symmetric(vertical: 10),
-          borderOnForeground: Paint.enableDithering,
         ),
         key: ValueKey(
           expenses[index],

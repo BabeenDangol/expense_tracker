@@ -74,6 +74,7 @@ class Chart extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 4),
                       child: Icon(
+                        //setting icon below the chart bar
                         categoryIcon[bucket.category],
                         color: isDarkMode
                             ? Theme.of(context).colorScheme.secondary
